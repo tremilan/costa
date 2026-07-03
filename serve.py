@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Lokální server pro web Reality Kostarika (export CostaGit).
 
-Mapuje cesty bez přípony na .html soubory (např. /o-nas -> o-nas.html).
+Web používá cesty s prefixem /costa/ (stejně jako GitHub Pages).
+Otevřete: http://127.0.0.1:8000/costa/
 
 Spuštění:
   python3 serve.py              # jen tento počítač (127.0.0.1)
@@ -15,6 +16,7 @@ import socket
 import sys
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import urlparse, urlunparse
 
 SITE_DIR = Path(__file__).resolve().parent
 DEFAULT_PORT = 8000
@@ -26,17 +28,30 @@ class Handler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(SITE_DIR), **kwargs)
 
     def send_head(self):
-        path = self.path.split("?")[0].split("#")[0]
-        if path == BASE_PREFIX or path == f"{BASE_PREFIX}/":
-            self.path = f"{BASE_PREFIX}/index.html"
-            path = self.path.split("?")[0].split("#")[0]
+        parsed = urlparse(self.path)
+        path = parsed.path
+
+        if path in ("", "/"):
+            self.send_response(302)
+            self.send_header("Location", f"{BASE_PREFIX}/")
+            self.end_headers()
+            return None
+
+        if path == BASE_PREFIX:
+            path = f"{BASE_PREFIX}/"
+
+        if path == f"{BASE_PREFIX}/":
+            path = f"{BASE_PREFIX}/index.html"
+
         if path.startswith(f"{BASE_PREFIX}/"):
             path = path[len(BASE_PREFIX) :] or "/"
-            self.path = self.path.replace(BASE_PREFIX, "", 1) or "/"
+
         if path != "/" and "." not in path.rsplit("/", 1)[-1]:
             candidate = SITE_DIR / (path.lstrip("/") + ".html")
             if candidate.exists():
-                self.path = path.rstrip("/") + ".html"
+                path = path.rstrip("/") + ".html"
+
+        self.path = urlunparse((parsed.scheme, parsed.netloc, path, parsed.params, parsed.query, parsed.fragment))
         return super().send_head()
 
 
@@ -63,14 +78,12 @@ def lan_ips() -> list[str]:
 
 def print_urls(host: str, port: int) -> None:
     print(f"Web běží na http://127.0.0.1:{port}{BASE_PREFIX}/", flush=True)
+    print("Tip: pokud port 8000 obsazený, ukončete starý server (Ctrl+C) nebo použijte jiný port.", flush=True)
 
     if host != "127.0.0.1":
         print("Test na telefonu (stejná Wi-Fi / hotspot):", flush=True)
-        ips = lan_ips()
-        for ip in ips:
-            print(f"  http://{ip}:{port}", flush=True)
-        if not ips:
-            print("  (LAN IP se nepodařilo zjistit)", flush=True)
+        for ip in lan_ips():
+            print(f"  http://{ip}:{port}{BASE_PREFIX}/", flush=True)
 
 
 def parse_args() -> argparse.Namespace:
@@ -99,6 +112,6 @@ if __name__ == "__main__":
         ThreadingHTTPServer((host, args.port), Handler).serve_forever()
     except OSError as exc:
         print(f"Server se nespustil: {exc}", file=sys.stderr)
-        if args.lan:
-            print("Tip: zkontrolujte firewall Macu nebo zkuste jiný port.", file=sys.stderr)
+        if "Address already in use" in str(exc):
+            print(f"Port {args.port} je obsazený. Zkuste: python3 serve.py {args.port + 1}", file=sys.stderr)
         sys.exit(1)
