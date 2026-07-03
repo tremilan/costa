@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="cs-CZ">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projekty | Pozemky – Reality Kostarika</title>
+  <meta name="description" content="Plány projektů Palm Oasis a Private Lagoons v Puerto Jiménez, ceny parcel a modely ekologických vil stavěných na klíč.">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="site-header__logo" aria-label="Reality Kostarika – úvod">
+        <img src="/assets/images/youtube-avatar.png" alt="" class="site-header__logo-mark" width="32" height="32" decoding="async">
+        <img src="/assets/images/logo.svg" alt="Reality Kostarika" class="site-header__logo-text" width="160" height="36">
+      </a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" data-site-nav>
+        <a href="/projekty-pozemky" class="is-active">Projekty | Pozemky</a>
+        <a href="/investicni-program">Investiční program</a>
+        <a href="/infrastruktura-lokalita">Infrastruktura | Lokalita</a>
+        <a href="/stavba-sprava">Stavba | Správa</a>
+        <a href="/kontakt">Kontakt | O nás</a>
+        <a href="/kontakt#kontakt-form" class="btn btn--outline-dark btn--sm site-header__cta site-header__cta-mobile">Konzultace</a>
+      </nav>
+      <div class="site-header__actions">
+        <a href="/kontakt#kontakt-form" class="btn btn--outline-dark btn--sm site-header__cta site-header__cta-desktop">Konzultace</a>
+        <nav class="lang-switcher" aria-label="Výběr jazyka">
+          <button type="button" class="lang-switcher__btn" disabled title="English — již brzy" aria-label="English — již brzy">
+            <img src="/assets/icons/flag-us.svg" alt="" width="20" height="14" decoding="async">
+          </button>
+          <button type="button" class="lang-switcher__btn" disabled title="Deutsch — již brzy" aria-label="Deutsch — již brzy">
+            <img src="/assets/icons/flag-de.svg" alt="" width="20" height="14" decoding="async">
+          </button>
+          <button type="button" class="lang-switcher__btn" disabled title="Slovenčina — již brzy" aria-label="Slovenčina — již brzy">
+            <img src="/assets/icons/flag-sk.svg" alt="" width="20" height="14" decoding="async">
+          </button>
+          <button type="button" class="lang-switcher__btn is-active" aria-current="true" aria-label="Čeština" title="Čeština">
+            <img src="/assets/icons/flag-cz.svg" alt="" width="20" height="14" decoding="async">
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero page-hero--wide-title">
+      <div class="container">
+        <h1 class="heading-display">Projekty | Pozemky v Puerto Jiménez</h1>
+        <p class="lead page-hero__lead">Vlastní vila v hlídaném areálu. Klid, svoboda a tropický životní styl<br>s českým servisem od výběru parcely po předání klíčů.</p>
+      </div>
+    </section>
+
+    <section class="section section--ivory">
+      <div class="container container--plans">
+        <div class="project-plans-stack" data-project-parcels></div>
+      </div>
+    </section>
+
+    <section class="section section--cream">
+      <div class="container">
+        <h2 class="heading-section">Ukázka vil na klíč</h2>
+        <div class="villa-models">
+          <article class="villa-card">
+            <div class="villa-card__media" data-villa-carousel="osa">
+              <img src="/assets/villas/villa-osa.jpg" alt="Vila Osa" class="villa-card__img" width="800" height="600" loading="lazy" data-villa-gallery="osa" data-villa-index="0">
+            </div>
+            <div class="villa-card__body"><h4 class="villa-card__title">Vila Osa</h4><p class="villa-card__text">cca 180 m² · 3 ložnice · bazén</p></div>
+          </article>
+          <article class="villa-card">
+            <div class="villa-card__media" data-villa-carousel="jungle">
+              <img src="/assets/villas/villa-jungle.jpg" alt="Vila Jungle" class="villa-card__img" width="800" height="600" loading="lazy" data-villa-gallery="jungle" data-villa-index="0">
+            </div>
+            <div class="villa-card__body"><h4 class="villa-card__title">Vila Jungle</h4><p class="villa-card__text">cca 160 m² · 2 ložnice · terasa v korunách</p></div>
+          </article>
+          <article class="villa-card">
+            <div class="villa-card__media" data-villa-carousel="ocean">
+              <img src="/assets/villas/villa-ocean.jpg" alt="Vila Ocean" class="villa-card__img" width="800" height="600" loading="lazy" data-villa-gallery="ocean" data-villa-index="0">
+            </div>
+            <div class="villa-card__body"><h4 class="villa-card__title">Vila Ocean</h4><p class="villa-card__text">cca 70 m² · 1 ložnice · výhled na záliv</p></div>
+          </article>
+        </div>
+        <p style="text-align:center;margin-top:2.5rem"><a href="/kontakt#kontakt-form" class="btn btn--primary">Domluvit prohlídku projektu</a></p>
+      </div>
+    </section>
+
+    <section class="section completed-projects-section" aria-labelledby="completed-projects-heading">
+      <div class="container">
+        <h2 class="heading-section" id="completed-projects-heading">Ukončené projekty</h2>
+        <p class="lead completed-projects__intro">Developerské projekty, které jsme již v regionu úspěšně dokončili a prodali.<br>Nyní děláme šťastnějšími více než 100 rodin a staráme se o jejich vily.</p>
+        <div class="completed-projects">
+          <article class="completed-project-card">
+            <div class="completed-project-card__media">
+              <img src="/assets/projects/completed/beach-park-la-cuna.jpg" alt="Beach Park La Cuna" class="completed-project-card__img" width="800" height="600" loading="lazy">
+              <span class="completed-project-card__badge">Ukončeno</span>
+              <div class="completed-project-card__caption">
+                <h3 class="completed-project-card__title">Beach Park La Cuna</h3>
+              </div>
+            </div>
+          </article>
+          <article class="completed-project-card">
+            <div class="completed-project-card__media">
+              <img src="/assets/projects/completed/dulce-bays-homes-canaza.jpg" alt="Dulce Bay's Homes Cañaza" class="completed-project-card__img" width="800" height="600" loading="lazy">
+              <span class="completed-project-card__badge">Ukončeno</span>
+              <div class="completed-project-card__caption">
+                <h3 class="completed-project-card__title">Dulce Bay's Homes Cañaza</h3>
+              </div>
+            </div>
+          </article>
+          <article class="completed-project-card">
+            <div class="completed-project-card__media">
+              <img src="/assets/projects/completed/ocean-view-san-miguel.jpg" alt="Ocean View San Miguel" class="completed-project-card__img" width="800" height="600" loading="lazy">
+              <span class="completed-project-card__badge">Ukončeno</span>
+              <div class="completed-project-card__caption">
+                <h3 class="completed-project-card__title">Ocean View San Miguel</h3>
+              </div>
+            </div>
+          </article>
+          <article class="completed-project-card">
+            <div class="completed-project-card__media">
+              <img src="/assets/projects/completed/tropical-gardens-canaza.jpg" alt="Tropical Gardens Cañaza" class="completed-project-card__img" width="800" height="600" loading="lazy">
+              <span class="completed-project-card__badge">Ukončeno</span>
+              <div class="completed-project-card__caption">
+                <h3 class="completed-project-card__title">Tropical Gardens Cañaza</h3>
+              </div>
+            </div>
+          </article>
+          <article class="completed-project-card">
+            <div class="completed-project-card__media">
+              <img src="/assets/projects/completed/villa-park-sandalo.jpg" alt="Vila Park Sandalo" class="completed-project-card__img" width="800" height="600" loading="lazy">
+              <span class="completed-project-card__badge">Ukončeno</span>
+              <div class="completed-project-card__caption">
+                <h3 class="completed-project-card__title">Vila Park Sandalo I–IV</h3>
+              </div>
+            </div>
+          </article>
+          <article class="completed-project-card">
+            <div class="completed-project-card__media">
+              <img src="/assets/projects/completed/jungle-park-monterrey.jpg" alt="Jungle Park Monterrey" class="completed-project-card__img" width="800" height="600" loading="lazy">
+              <span class="completed-project-card__badge">Ukončeno</span>
+              <div class="completed-project-card__caption">
+                <h3 class="completed-project-card__title">Jungle Park Monterrey</h3>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--cream" aria-labelledby="references-heading">
+      <div class="container">
+        <h2 class="heading-section" id="references-heading">Reference</h2>
+        <div class="references" data-references-carousel aria-roledescription="carousel" aria-label="Reference" tabindex="0">
+          <div class="references__frame">
+            <button type="button" class="references__nav references__nav--prev" data-reference-prev aria-label="Předchozí reference">
+              <svg class="references__nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M14.5 5.5L8.5 12L14.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="references__viewport" data-references-viewport aria-live="polite">
+              <blockquote class="reference-card is-active" data-reference-slide aria-hidden="false">
+                <p class="reference-card__quote">„Pro mě je Kostarika právem označovaná za „Švýcarsko Střední Ameriky“ – mírumilovnou zemi bez armády, která místo do zbraní investuje do vzdělání lidí a ochrany přírody. Relativně malý stát mezi dvěma oceány nabízí pralesy, sopky a čisté pláže, do kterých se člověk snadno zamiluje. Místní žijí filozofií „pura vida“ a patří k nejšťastnějším na světě. Není divu, že se sem mnoho lidí vrací, aby si tu našli nový domov a klidné místo pro odpočinek na stáří.“</p>
+                <footer class="reference-card__footer">
+                  <cite class="reference-card__name">Marek Vašut</cite>
+                  <span class="reference-card__role">Ambasador projektu · herec a podnikatel</span>
+                </footer>
+              </blockquote>
+              <blockquote class="reference-card" data-reference-slide aria-hidden="true">
+                <p class="reference-card__quote">„Na vlastním pozemku máme doslova prales – opice, papoušci, tukani i tropičtí motýli. Chtěli jsme žít v souladu s přírodou a Kostarika jako unikátní ekosystém byla jasná volba. Díky prameni přímo na pozemku, slunci a úrodné půdě budujeme soběstačné bydlení jen pár minut od moře. Prostě pura vida.“</p>
+                <footer class="reference-card__footer">
+                  <cite class="reference-card__name">Marek Popálený</cite>
+                  <span class="reference-card__role">Investor · podnikatel</span>
+                </footer>
+              </blockquote>
+              <blockquote class="reference-card" data-reference-slide aria-hidden="true">
+                <p class="reference-card__quote">„Můj dům s velkou terasou se právě staví a líbí se mi, jak celý projekt, tak poctivé stavební materiály. Kostarické Sandalo si mě získalo krásnou přírodou a pocitem svobody v zemi, která je v klidu mimo všechny konflikty. Máme tu s přáteli útočiště na penzi pro případ potřeby.“</p>
+                <footer class="reference-card__footer">
+                  <cite class="reference-card__name">Petr Oravec</cite>
+                  <span class="reference-card__role">Investor</span>
+                </footer>
+              </blockquote>
+              <blockquote class="reference-card" data-reference-slide aria-hidden="true">
+                <p class="reference-card__quote">„Poloostrov Osa nás nadchl, nejvíc pozemky zasazené do džungle, kde vzniká plnohodnotné resortové středisko. Navštívili jsme všechny lokality a každý pozemek je naprosto unikátní. Velký dík patří i kolegyni Lauře, která zařídila výlet do národního parku Corcovado a skvěle se o nás postarala.“</p>
+                <footer class="reference-card__footer">
+                  <cite class="reference-card__name">Pavel Malý</cite>
+                  <span class="reference-card__role">Investor</span>
+                </footer>
+              </blockquote>
+            </div>
+            <button type="button" class="references__nav references__nav--next" data-reference-next aria-label="Další reference">
+              <svg class="references__nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M9.5 5.5L15.5 12L9.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+          <div class="references__dots" role="tablist" aria-label="Výběr reference">
+            <button type="button" class="references__dot is-active" data-reference-dot aria-label="Reference 1: Marek Vašut" aria-selected="true"></button>
+            <button type="button" class="references__dot" data-reference-dot aria-label="Reference 2: Marek Popálený" aria-selected="false"></button>
+            <button type="button" class="references__dot" data-reference-dot aria-label="Reference 3: Petr Oravec" aria-selected="false"></button>
+            <button type="button" class="references__dot" data-reference-dot aria-label="Reference 4: Pavel Malý" aria-selected="false"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <p class="site-footer__title">Nabídka</p>
+          <nav class="site-footer__links">
+            <a href="/projekty-pozemky" class="site-footer__link">Projekty | Pozemky</a>
+            <a href="/investicni-program" class="site-footer__link">Investiční program</a>
+            <a href="https://osabooking.com/" class="site-footer__link site-footer__link--pobyty" target="_blank" rel="noopener noreferrer">Rezervace pobytu</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__title">Informace</p>
+          <nav class="site-footer__links">
+            <a href="/infrastruktura-lokalita" class="site-footer__link">Infrastruktura | Lokalita</a>
+            <a href="/stavba-sprava" class="site-footer__link">Stavba | Správa</a>
+            <button type="button" class="site-footer__link" data-blog-open>Blog</button>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__title">Kontakt</p>
+          <nav class="site-footer__links">
+            <a href="tel:+420234274747" class="site-footer__link">+420 234 274 747</a>
+            <a href="mailto:hello@realitykostarika.cz" class="site-footer__link">hello@realitykostarika.cz</a>
+            <a href="https://wa.me/420234274747" class="site-footer__link" target="_blank" rel="noopener">WhatsApp chat</a>
+          </nav>
+        </div>
+        <div>
+          <p class="site-footer__title">Sledujte nás</p>
+          <nav class="site-footer__links" aria-label="Sociální sítě">
+            <a href="https://www.facebook.com/realitykostarika11/directory_contact_info" class="site-footer__link" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/stories/realitykostarika/" class="site-footer__link" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://www.youtube.com/@realitykostarika/featured" class="site-footer__link" target="_blank" rel="noopener">YouTube</a>
+          </nav>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>© 2016–2026 Central America Development, a.s. | IČ 22454811, spisová značka B 29416 vedená u Městského soudu v Praze. Společnost sídlí v Tančícím domě, Jiráskovo náměstí 1981/6, 120 00 - Praha 2 | <a href="mailto:hello@realitykostarika.cz">hello@realitykostarika.cz</a> | <a href="tel:+420234274747">+420 234 274 747</a></p>
+        <p>Veškeré informace jakkoliv publikované na těchto stránkách jsou nezávazné marketingové informace obecné povahy, které nelze vykládat jako nabídku na uzavření smlouvy ani se jich nelze dovolávat. Konkrétní smluvní a obchodní podmínky budou sděleny v sídle naší společnosti. Pro případ marketingových akcí inzerujících jakoukoliv formou cenu či její zvýhodnění platí, že tato akce je vždy do vyprodání zásob.</p>
+      </div>
+    </div>
+  </footer>
+  <div class="video-lightbox" data-video-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video">
+    <div class="video-lightbox__backdrop" data-video-backdrop></div>
+    <div class="video-lightbox__shell">
+      <button type="button" class="video-lightbox__close" data-video-close aria-label="Zavřít video">×</button>
+      <div class="video-lightbox__dialog">
+        <video class="video-lightbox__video" data-video-player controls playsinline hidden></video>
+        <iframe class="video-lightbox__iframe" data-video-iframe title="Video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen hidden></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-lightbox" data-image-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-label="Prohlížení fotek vily">
+    <div class="image-lightbox__backdrop" data-image-backdrop></div>
+    <div class="image-lightbox__dialog">
+      <button type="button" class="image-lightbox__close" data-image-close aria-label="Zavřít">
+        ×
+      </button>
+      <button type="button" class="image-lightbox__nav image-lightbox__nav--prev" data-image-prev aria-label="Předchozí fotka">
+        <svg class="image-lightbox__nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14.5 5.5L8.5 12L14.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <img class="image-lightbox__img" data-image-img src="" alt="">
+      <button type="button" class="image-lightbox__nav image-lightbox__nav--next" data-image-next aria-label="Další fotka">
+        <svg class="image-lightbox__nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9.5 5.5L15.5 12L9.5 18.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="/js/project-parcels-data.js?v=21" defer></script>
+  <script src="/js/project-parcel-shapes.js?v=16" defer></script>
+  <script src="/js/project-parcels.js?v=30" defer></script>
+  <script src="/js/blog-data.js" defer></script>
+  <script src="/js/blog-content.js" defer></script>
+  <script src="/js/main.js?v=video1" defer></script>
+</body>
+</html>

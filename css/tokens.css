@@ -1,0 +1,80 @@
+:root {
+  --ivory: #faf8f4;
+  --cream: #f5f1ea;
+  --sand: #e8e2d6;
+  --warm-grey: #d4cdc2;
+  --stone: #9a9590;
+  --anthracite: #222831;
+  --charcoal: #1a1f2c;
+  --navy: #1b2838;
+  --navy-deep: #141e2b;
+  --bronze: #8b7355;
+  --pink: #ea39c2;
+  --pink-rgb: 234, 57, 194;
+  --pink-hover: #c91fa3;
+  --pink-soft: rgba(var(--pink-rgb), 0.14);
+  --terracotta: #b8623a;
+  --terracotta-hover: #9a5230;
+  --terracotta-soft: rgba(184, 98, 58, 0.12);
+  --olive: #5c6b45;
+  --text: #1a1f2c;
+  --text-muted: #4a4f5c;
+  --text-light: rgba(250, 248, 244, 0.88);
+
+  /* Barvy — světlé sekce */
+  --color-heading: var(--charcoal);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--terracotta);
+  --color-label: var(--terracotta);
+
+  /* Tmavé sekce */
+  --on-dark-heading: #fff2de;
+  --on-dark-body: rgba(228, 220, 208, 0.82);
+  --on-dark-body-muted: rgba(210, 202, 192, 0.68);
+  --on-dark-accent: #e8a882;
+  --on-dark-accent-strong: var(--terracotta);
+
+  /* Fonty */
+  --font: "IBM Plex Sans", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-weight-heading: 800;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --heading-scale-y: 1.1;
+
+  /* Typografická škála */
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.9375rem;
+  --text-lg: 1.0625rem;
+  --text-xl: 1.25rem;
+  --text-stat: 1.5rem;
+  --text-h1: clamp(2.25rem, 2.5vw + 1.35rem, 4.5rem);
+  --text-h2: clamp(1.75rem, 2vw + 0.85rem, 2.75rem);
+  --text-h3: clamp(1.375rem, 1vw + 1rem, 2rem);
+  --text-h4: clamp(1.125rem, 0.8vw + 0.95rem, 1.375rem);
+  --text-quote: clamp(1.25rem, 1.2vw + 0.85rem, 1.875rem);
+  --text-body: clamp(0.9375rem, 0.2vw + 0.88rem, 1.125rem);
+  --text-lead: var(--text-body);
+
+  /* Řádkování */
+  --line-body: 1.7;
+  --line-quote: 1.55;
+  --line-heading-display: 1.22;
+  --line-heading-section: 1.32;
+  --line-heading-sub: 1.36;
+  --line-tight: 1.35;
+  --line-snug: 1.25;
+
+  --marker-dot-size: 0.4rem;
+  --marker-dot-color: var(--terracotta);
+
+  --nav-height: 4.5rem;
+  --container: 76rem;
+  --container-narrow: 44rem;
+  --section-gap: clamp(4rem, 8vw, 7rem);
+  --radius: 3px;
+  --shadow: 0 20px 60px rgba(26, 31, 44, 0.06);
+  --transition: 0.22s ease;
+}

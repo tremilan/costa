@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 887" fill="none" aria-hidden="true">
+  <defs>
+    <filter id="hpGlowRed" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FF1744" flood-opacity="1"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#FF1744" flood-opacity="0.55"/>
+    </filter>
+    <filter id="hpGlowBlue" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#2196F3" flood-opacity="1"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#2196F3" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <style>
+    .hp-map__hit {
+      fill: transparent;
+      pointer-events: all;
+      cursor: pointer;
+    }
+
+    .hp-map_marker-visual {
+      pointer-events: none;
+    }
+  </style>
+
+  <g class="hp-map_markers-red">
+    <g class="hp-map_marker" data-marker="liberia" role="button" tabindex="0">
+      <circle class="hp-map__hit" cx="198" cy="228" r="28"/>
+      <g class="hp-map_marker-visual" transform="translate(198 228)" filter="url(#hpGlowRed)">
+        <circle r="13" fill="#FF1744" stroke="#FFFFFF" stroke-width="3.5"/>
+        <circle r="5.5" fill="#FFFFFF" opacity="0.95"/>
+      </g>
+    </g>
+    <g class="hp-map_marker" data-marker="san-jose" role="button" tabindex="0">
+      <circle class="hp-map__hit" cx="478" cy="380" r="28"/>
+      <g class="hp-map_marker-visual" transform="translate(478 380)" filter="url(#hpGlowRed)">
+        <circle r="13" fill="#FF1744" stroke="#FFFFFF" stroke-width="3.5"/>
+        <circle r="5.5" fill="#FFFFFF" opacity="0.95"/>
+      </g>
+    </g>
+  </g>
+
+  <g class="hp-map_markers-blue">
+    <g class="hp-map_marker hp-map_marker--uvita" data-marker="uvita" role="button" tabindex="0">
+      <circle class="hp-map__hit" cx="624" cy="587" r="28"/>
+      <g class="hp-map_marker-visual" transform="translate(624 587)" filter="url(#hpGlowBlue)">
+        <circle r="13" fill="#2196F3" stroke="#FFFFFF" stroke-width="3.5"/>
+        <circle r="5.5" fill="#FFFFFF" opacity="0.95"/>
+      </g>
+    </g>
+  </g>
+</svg>
