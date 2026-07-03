@@ -486,11 +486,11 @@
 }
 
 .project-plan-block[data-project-id="palm-oasis"] .parcel-popover {
-  background-image: url("../assets/projects/palm-oasis-popover-bg.jpg");
+  background-image: url("/costa/assets/projects/palm-oasis-popover-bg.jpg");
 }
 
 .project-plan-block[data-project-id="private-lagoons"] .parcel-popover {
-  background-image: url("../assets/projects/private-lagoons-popover-bg.jpg");
+  background-image: url("/costa/assets/projects/private-lagoons-popover-bg.jpg");
 }
 
 .parcel-popover[hidden] {
@@ -1003,7 +1003,7 @@ body.is-team-cards-overlay-open {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: url("../assets/video/pura-vida-poster.jpg") center / cover no-repeat;
+  background: url("/costa/assets/video/pura-vida-poster.jpg") center / cover no-repeat;
 }
 
 .emotion-section__video-wrap::after {
@@ -1299,7 +1299,7 @@ body.is-team-cards-overlay-open {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url("../assets/images/uvodni-stranka-hero.avif") center center / cover no-repeat;
+  background: url("/costa/assets/images/uvodni-stranka-hero.avif") center center / cover no-repeat;
   transform: scaleX(-1);
 }
 

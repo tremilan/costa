@@ -18,6 +18,7 @@ from pathlib import Path
 
 SITE_DIR = Path(__file__).resolve().parent
 DEFAULT_PORT = 8000
+BASE_PREFIX = "/costa"
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -26,6 +27,12 @@ class Handler(SimpleHTTPRequestHandler):
 
     def send_head(self):
         path = self.path.split("?")[0].split("#")[0]
+        if path == BASE_PREFIX or path == f"{BASE_PREFIX}/":
+            self.path = f"{BASE_PREFIX}/index.html"
+            path = self.path.split("?")[0].split("#")[0]
+        if path.startswith(f"{BASE_PREFIX}/"):
+            path = path[len(BASE_PREFIX) :] or "/"
+            self.path = self.path.replace(BASE_PREFIX, "", 1) or "/"
         if path != "/" and "." not in path.rsplit("/", 1)[-1]:
             candidate = SITE_DIR / (path.lstrip("/") + ".html")
             if candidate.exists():
@@ -55,7 +62,7 @@ def lan_ips() -> list[str]:
 
 
 def print_urls(host: str, port: int) -> None:
-    print(f"Web běží na http://127.0.0.1:{port}", flush=True)
+    print(f"Web běží na http://127.0.0.1:{port}{BASE_PREFIX}/", flush=True)
 
     if host != "127.0.0.1":
         print("Test na telefonu (stejná Wi-Fi / hotspot):", flush=True)

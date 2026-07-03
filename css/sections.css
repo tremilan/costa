@@ -563,7 +563,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: url("../assets/video/puerto-jimenez-poster.jpg") center / cover no-repeat;
+  background: url("/costa/assets/video/puerto-jimenez-poster.jpg") center / cover no-repeat;
 }
 
 .puerto-video-section__video-wrap::after {

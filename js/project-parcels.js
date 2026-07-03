@@ -80,7 +80,7 @@
       </dl>
       ${
         parcel.status === "available"
-          ? `<a href="kontakt.html#kontakt-form" class="btn btn--primary btn--sm parcel-popover__cta">Mám zájem</a>`
+          ? `<a href="/costa/kontakt.html#kontakt-form" class="btn btn--primary btn--sm parcel-popover__cta">Mám zájem</a>`
           : ""
       }
     `;
