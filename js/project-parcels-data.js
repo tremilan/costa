@@ -1,8 +1,8 @@
 window.PROJECT_PARCELS = {
   "palm-oasis": {
     "title": "Palm Oasis el Ňeque",
-    "image": "/assets/projects/palm-oasis-el-neque-plan.jpg",
-    "imageFull": "/assets/projects/palm-oasis-el-neque-plan-full.jpg",
+    "image": "assets/projects/palm-oasis-el-neque-plan.jpg",
+    "imageFull": "assets/projects/palm-oasis-el-neque-plan-full.jpg",
     "imageWidth": 1866,
     "imageHeight": 1314,
     "imageAlt": "Plán projektu Palm Oasis el Ňeque",
@@ -20,8 +20,8 @@ window.PROJECT_PARCELS = {
         "text": "Poloha, která kombinuje to nejlepší. Pouhé 4 minuty od pláže, ale skryté pro maximální soukromí."
       }
     ],
-    "video": "/assets/video/palm-oasis.mp4?v=1080",
-    "videoPoster": "/assets/projects/palm-oasis-video-poster.jpg",
+    "video": "assets/video/palm-oasis.mp4?v=1080",
+    "videoPoster": "assets/projects/palm-oasis-video-poster.jpg",
     "mapIntro": [
       "Najděte dokonalé zázemí pro svou rodinu v palmovém háji.",
       "Kliknutím na parcelu zobrazíte cenu a dostupnost."
@@ -221,8 +221,8 @@ window.PROJECT_PARCELS = {
   },
   "private-lagoons": {
     "title": "Private Lagoons Residences Terrones",
-    "image": "/assets/projects/private-lagoons-terrones-plan.jpg",
-    "imageFull": "/assets/projects/private-lagoons-terrones-plan-full.jpg",
+    "image": "assets/projects/private-lagoons-terrones-plan.jpg",
+    "imageFull": "assets/projects/private-lagoons-terrones-plan-full.jpg",
     "imageWidth": 1990,
     "imageHeight": 1398,
     "imageAlt": "Plán projektu Private Lagoons Residences Terrones",
@@ -240,8 +240,8 @@ window.PROJECT_PARCELS = {
         "text": "Spojení divočiny poloostrova Osa a české zázemí s kompletním servisem stavby a správy na klíč."
       }
     ],
-    "video": "/assets/video/private-lagoons.mp4?v=1080",
-    "videoPoster": "/assets/projects/private-lagoons-video-poster.jpg",
+    "video": "assets/video/private-lagoons.mp4?v=1080",
+    "videoPoster": "assets/projects/private-lagoons-video-poster.jpg",
     "mapIntro": [
       "Vstupte do privátní botanické zahrady.",
       "Klikněte na preferovanou parcelu a objevte detaily svého budoucího útočiště."

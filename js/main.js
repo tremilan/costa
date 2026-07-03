@@ -2,22 +2,22 @@
   const INVEST_MIN = 500000;
   const VILLA_GALLERIES = {
     osa: [
-      "/assets/villas/villa-osa.jpg",
-      "/assets/villas/villa-osa-2.jpg",
-      "/assets/villas/villa-osa-3.jpg",
-      "/assets/villas/villa-osa-4.jpg",
+      "assets/villas/villa-osa.jpg",
+      "assets/villas/villa-osa-2.jpg",
+      "assets/villas/villa-osa-3.jpg",
+      "assets/villas/villa-osa-4.jpg",
     ],
     jungle: [
-      "/assets/villas/villa-jungle.jpg",
-      "/assets/villas/villa-jungle-2.jpg",
-      "/assets/villas/villa-jungle-3.jpg",
+      "assets/villas/villa-jungle.jpg",
+      "assets/villas/villa-jungle-2.jpg",
+      "assets/villas/villa-jungle-3.jpg",
     ],
     ocean: [
-      "/assets/villas/villa-ocean.jpg",
-      "/assets/villas/villa-ocean-2.jpg",
-      "/assets/villas/villa-ocean-3.jpg",
-      "/assets/villas/villa-ocean-4.jpg",
-      "/assets/villas/villa-ocean-5.jpg",
+      "assets/villas/villa-ocean.jpg",
+      "assets/villas/villa-ocean-2.jpg",
+      "assets/villas/villa-ocean-3.jpg",
+      "assets/villas/villa-ocean-4.jpg",
+      "assets/villas/villa-ocean-5.jpg",
     ],
   };
 

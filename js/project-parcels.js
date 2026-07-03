@@ -80,7 +80,7 @@
       </dl>
       ${
         parcel.status === "available"
-          ? `<a href="/kontakt#kontakt-form" class="btn btn--primary btn--sm parcel-popover__cta">Mám zájem</a>`
+          ? `<a href="kontakt.html#kontakt-form" class="btn btn--primary btn--sm parcel-popover__cta">Mám zájem</a>`
           : ""
       }
     `;
@@ -239,7 +239,7 @@
         if (!cta) return;
         event.preventDefault();
         event.stopPropagation();
-        window.location.assign(cta.getAttribute("href") || "/kontakt#kontakt-form");
+        window.location.assign(cta.getAttribute("href") || "kontakt.html#kontakt-form");
       },
       true
     );
