@@ -199,6 +199,8 @@
   border: 1px solid transparent;
   border-radius: 0.3rem;
   background: transparent;
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
   opacity: 0.45;
   transition: opacity var(--transition), border-color var(--transition), box-shadow var(--transition);

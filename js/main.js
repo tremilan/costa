@@ -1,5 +1,69 @@
 (function () {
+  const isEn = (document.documentElement.lang || "").toLowerCase().startsWith("en");
   const INVEST_MIN = 500000;
+
+  const CZK_PER_EUR = 24.43;
+  const CZK_PER_GBP = 29.278;
+
+  function formatCzk(amount) {
+    const rounded = Math.round(amount);
+    if (!isEn) return rounded.toLocaleString("cs-CZ") + " Kč";
+    const eur = Math.round(rounded / CZK_PER_EUR);
+    const gbp = Math.round(rounded / CZK_PER_GBP);
+    return "€" + eur.toLocaleString("en-GB") + " / £" + gbp.toLocaleString("en-GB");
+  }
+
+  function formatBlogDate(value) {
+    if (!isEn) return value;
+    const match = String(value).match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})$/);
+    if (!match) return value;
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const month = months[Number(match[2]) - 1];
+    if (!month) return value;
+    return Number(match[1]) + " " + month + " " + match[3];
+  }
+
+  const BLOG_TITLE_EN = {
+    "/blog/proc-stale-vice-lidi-opousti-beton-a-hleda-domov-v-prirode-objevte-kouzlo-zivota-na-poloostrove-osa": "Why are more people leaving the concrete behind and looking for a home in nature? Discover life on the Osa Peninsula",
+    "/blog/fiestas-patronales-kdyz-kostaricke-srdce-bije-v-rytmu-tradice": "Fiestas Patronales: when the Costa Rican heart beats to the rhythm of tradition",
+    "/blog/setkani-s-prezidentem-kostariky-na-poloostrove-osa-historicky-moment-pro-puerto-jimenez": "Meeting the President of Costa Rica on the Osa Peninsula: a historic moment for Puerto Jiménez",
+    "/blog/halloween-ala-den-maskar-kostaricka-tradice-v-tropickem-raji": "Halloween, Costa Rican style: the Day of the Masquerade in a tropical paradise",
+    "/blog/zelene-poklady-kostariky-pruvodce-narodnimi-parky": "Costa Rica’s green treasures: a guide to the national parks",
+    "/blog/kostaricky-vzdelavaci-system-poklad-latinske-ameriky": "Costa Rica’s education system: a treasure of Latin America",
+    "/blog/nakup-a-sprava-nemovitosti-na-kostarice-jak-to-u-nas-funguje": "Buying and managing property in Costa Rica: how we do it",
+    "/blog/ekologicky-klenot-jmenem-kostarik": "An ecological jewel called Costa Rica",
+    "/blog/ivan-mraz-prukopnik-moderni-kopane-v-kostarice": "Ivan Mráz: a pioneer of the modern game in Costa Rica",
+    "/blog/velikonocni-oslavy-v-kostarice-jake-jsou-zvyky-a-tradice": "Easter in Costa Rica: customs and traditions",
+    "/blog/envision-hudebni-festival-v-kostaricke-dzungli": "Envision: a music festival in the Costa Rican jungle",
+    "/blog/fiesta-de-los-diablitos---mysticke-kulturni-dedictvi-kostariky": "Fiesta de los Diablitos: a mystical piece of Costa Rican heritage",
+    "/blog/osa-experience-cesta-za-jedinecnymi-zazitky-na-poloostrove-osa": "Osa Experience: a journey to remarkable moments on the Osa Peninsula",
+    "/blog/speciality-kostaricke-kuchyne-nahlednete-pod-poklicku-s-markem-vasutem-a-lindou": "Costa Rican specialities: a look behind the kitchen door with Marek Vašut and Linda",
+    "/blog/cas-vanoc-na-kostarice-tropicke-oslavy-radosti": "Christmas in Costa Rica: a tropical celebration",
+    "/blog/ochrana-prirody-na-kostarice-zeleny-raj-s-odpovednosti": "Protecting nature in Costa Rica: a green paradise with a sense of responsibility",
+    "/blog/reality-kostarika-na-investicnim-summitu-gis-2023-vse-o-investovani-v-tropickem-raji": "Reality Kostarika at the GIS 2023 Investment Summit: investing in a tropical paradise",
+    "/blog/zarive-chvile-na-strese-tanciciho-domu-ohlednuti-za-rooftop-party-s-reality-kostarika": "An evening on the roof of the Dancing House: the Reality Kostarika rooftop party",
+    "/blog/jak-se-slavi-kolumbuv-den-na-kostarice": "How Columbus Day is celebrated in Costa Rica",
+    "/blog/den-nezavislosti-kostariky-zarijova-oslava-svobody": "Costa Rica’s Independence Day: a September celebration of freedom",
+    "/blog/pruvodce-pro-pestitele-kostaricka-flora-a-realizace-vlastni-tropicke-zahrady": "A grower’s guide: Costa Rican flora and planting your own tropical garden",
+    "/blog/kostarika-raj-pro-milovniky-cokolady": "Costa Rica: a paradise for chocolate lovers",
+    "/blog/reality-kostarika-v-magazinu-perfect-woman": "Reality Kostarika in Perfect Woman magazine",
+    "/blog/jizda-kostarickym-rajem-ridicuv-pruvodce": "Driving through a Costa Rican paradise: a driver’s guide",
+    "/blog/marek-popaleny-a-jeho-kostaricke-dobrodruzstvi": "Marek Popálený and his Costa Rican adventure",
+    "/blog/pocasi-a-klima-v-tropickem-raji-na-co-se-pripravit": "Weather and climate in a tropical paradise: what to expect",
+    "/blog/reality-kostarika-na-global-esg-sustainability-summitu-vzhlizime-k-udrzitelne-budoucnosti": "Reality Kostarika at the Global ESG & Sustainability Summit: looking towards a sustainable future",
+    "/blog/ctenari-national-geographic-zvolili-kostariku-nejlepsi-destinaci-v-latinske-americe": "National Geographic readers voted Costa Rica the best destination in Latin America",
+    "/blog/poloostrov-osa-v-kvetnu-proc-je-to-idealni-cas-na-navstevu": "The Osa Peninsula in May: why it is an ideal time to visit",
+    "/blog/jak-se-zije-na-poloostrove-osa-vhled-do-autentickeho-koutu-kostariky": "Life on the Osa Peninsula: an authentic corner of Costa Rica",
+    "/blog/objevte-raj-na-zemi-nejkrasnejsi-plaze-na-poloostrove-osa": "Discover paradise on earth: the most beautiful beaches on the Osa Peninsula",
+    "/blog/zivot-na-kostarice-rezidentura-od-a-do-z": "Life in Costa Rica: residency from A to Z",
+    "/blog/jak-se-nejrychleji-dostat-na-kostariku": "The fastest way to get to Costa Rica",
+    "/blog/reality-kostarika-a-bh-capital-group": "Reality Kostarika and BH Capital Group",
+    "/blog/investice-do-zahranicnich-nemovitosti---proc-je-kostarika-kralovnou-vyhod": "Investing in property abroad: why Costa Rica stands out",
+  };
+
+  function blogTitle(post) {
+    return isEn && BLOG_TITLE_EN[post.slug] ? BLOG_TITLE_EN[post.slug] : post.title;
+  }
   const VILLA_GALLERIES = {
     osa: [
       "/costa/assets/villas/villa-osa.jpg",
@@ -259,22 +323,28 @@
       { id: "C6", status: "sold", area: "760 m²", price: null },
     ];
 
-    const statusLabel = {
-      available: "Volný",
-      reserved: "Rezervováno",
-      sold: "Prodáno",
-    };
+    const statusLabel = isEn
+      ? { available: "Available", reserved: "Reserved", sold: "Sold" }
+      : { available: "Volný", reserved: "Rezervováno", sold: "Prodáno" };
+    const plotWord = isEn ? "Land" : "Parcela";
+    const areaLabel = isEn ? "Area" : "Plocha";
+    const estateLabel = isEn ? "Puerto Jiménez · guarded estate" : "Puerto Jiménez · hlídaný areál";
+    const fromLabel = isEn ? "from" : "od";
+    const interestLabel = isEn ? "I'm interested" : "Mám zájem";
+    const soldNote = isEn
+      ? "This land has already been sold. Choose available land on the map."
+      : "Tato parcela je již prodána. Vyberte volný pozemek v mapě.";
 
     function renderDetail(parcel) {
       detail.innerHTML = `
-        <p class="eyebrow">Parcela ${parcel.id}</p>
+        <p class="eyebrow">${plotWord} ${parcel.id}</p>
         <h3 class="masterplan__detail-title">${statusLabel[parcel.status]}</h3>
-        <p class="masterplan__detail-meta">Plocha: ${parcel.area}<br>Puerto Jiménez · hlídaný areál</p>
+        <p class="masterplan__detail-meta">${areaLabel}: ${parcel.area}<br>${estateLabel}</p>
         ${
           parcel.price
-            ? `<p class="masterplan__detail-price">od ${parcel.price}</p>
-               <a href="#kontakt" class="btn btn--primary btn--sm" style="margin-top:1rem">Mám zájem</a>`
-            : `<p class="masterplan__detail-meta" style="margin-top:1rem">Tato parcela je již prodána. Vyberte volný pozemek v mapě.</p>`
+            ? `<p class="masterplan__detail-price">${fromLabel} ${parcel.price}</p>
+               <a href="#kontakt" class="btn btn--primary btn--sm" style="margin-top:1rem">${interestLabel}</a>`
+            : `<p class="masterplan__detail-meta" style="margin-top:1rem">${soldNote}</p>`
         }
       `;
     }
@@ -343,11 +413,10 @@
       const amount = millions * 1_000_000;
 
       investDisplay.textContent =
-        millions < 1
-          ? amount.toLocaleString("cs-CZ") + " Kč"
-          : millions.toFixed(1).replace(".", ",") + " mil. Kč";
-      roiDisplay.textContent =
-        Math.round(amount * roiRate).toLocaleString("cs-CZ") + " Kč";
+        !isEn && millions >= 1
+          ? millions.toFixed(1).replace(".", ",") + " mil. Kč"
+          : formatCzk(amount);
+      roiDisplay.textContent = formatCzk(amount * roiRate);
 
       if (roiRateDisplay) roiRateDisplay.textContent = String(roiPercent);
       roiSlider.setAttribute("aria-valuenow", String(roiPercent));
@@ -360,7 +429,7 @@
 
   function formatInvestMin() {
     document.querySelectorAll("[data-invest-min]").forEach((el) => {
-      el.textContent = INVEST_MIN.toLocaleString("cs-CZ") + " Kč";
+      el.textContent = formatCzk(INVEST_MIN);
     });
   }
 
@@ -545,7 +614,7 @@
         if (!list?.length) return;
         const slides = list.map((src) => ({
           src,
-          alt: `Fotka vily ${galleryId}`,
+          alt: isEn ? `Photo of the ${galleryId} villa` : `Fotka vily ${galleryId}`,
         }));
         openSlides(slides, Number(thumb.getAttribute("data-villa-index") || "0"));
       });
@@ -564,7 +633,7 @@
           const photo = figure.querySelector("img");
           return {
             src: photo.getAttribute("src"),
-            alt: photo.alt || "Fotka ze setkání investorů",
+            alt: photo.alt || (isEn ? "Photo from an investor gathering" : "Fotka ze setkání investorů"),
           };
         });
 
@@ -771,8 +840,8 @@
             <button type="button" class="blog-overlay__card-link" data-blog-slug="${escapeHtml(post.slug)}">
               ${image}
               <div class="blog-overlay__card-body">
-                <time class="blog-overlay__card-date" datetime="${escapeHtml(post.date)}">${escapeHtml(post.date)}</time>
-                <h3 class="blog-overlay__card-title">${escapeHtml(post.title)}</h3>
+                <time class="blog-overlay__card-date" datetime="${escapeHtml(post.date)}">${escapeHtml(formatBlogDate(post.date))}</time>
+                <h3 class="blog-overlay__card-title">${escapeHtml(blogTitle(post))}</h3>
               </div>
             </button>
           </article>
@@ -785,10 +854,10 @@
       <div class="blog-overlay__panel">
         <div class="blog-overlay__header">
           <div class="blog-overlay__header-start">
-            <button type="button" class="blog-overlay__back" data-blog-back aria-label="Zpět na seznam článků">← Zpět</button>
+            <button type="button" class="blog-overlay__back" data-blog-back aria-label="${isEn ? "Back to articles" : "Zpět na seznam článků"}">← ${isEn ? "Back" : "Zpět"}</button>
             <h2 class="blog-overlay__title" data-blog-heading>Blog</h2>
           </div>
-          <button type="button" class="blog-overlay__close" data-blog-close aria-label="Zavřít blog">×</button>
+          <button type="button" class="blog-overlay__close" data-blog-close aria-label="${isEn ? "Close blog" : "Zavřít blog"}">×</button>
         </div>
         <div class="blog-overlay__scroll" data-blog-scroll>
           <div class="blog-overlay__list" data-blog-list>${cards}</div>
@@ -822,7 +891,7 @@
       const routeMap = {
         "/prehled-nemovitosti": "/projekty-pozemky",
         "/kontakty": "/kontakt",
-        "/investice": "/investicni-program",
+        "/investice": "/projekty-pozemky",
         "/o-nas": "/kontakt",
         "/zivot-na-kostarice": "/blog/zivot-na-kostarice-rezidentura-od-a-do-z",
         "/jungle-park-monterrey": "/projekty-pozemky",
@@ -877,20 +946,24 @@
     function showArticle(post) {
       const html = contentBySlug[post.slug];
       if (!html) {
-        articleDateEl.textContent = post.date;
+        articleDateEl.textContent = formatBlogDate(post.date);
         articleDateEl.dateTime = post.date;
-        articleTitleEl.textContent = post.title;
-        articleBodyEl.innerHTML = "<p>Obsah článku se nepodařilo načíst.</p>";
+        articleTitleEl.textContent = blogTitle(post);
+        articleBodyEl.innerHTML = isEn
+          ? "<p>This article could not be loaded.</p>"
+          : "<p>Obsah článku se nepodařilo načíst.</p>";
         overlay.classList.add("blog-overlay--article");
         scrollEl.scrollTop = 0;
         backBtn.focus();
         return;
       }
 
-      articleDateEl.textContent = post.date;
+      articleDateEl.textContent = formatBlogDate(post.date);
       articleDateEl.dateTime = post.date;
-      articleTitleEl.textContent = post.title;
-      articleBodyEl.innerHTML = html;
+      articleTitleEl.textContent = blogTitle(post);
+      articleBodyEl.innerHTML = isEn
+        ? "<p>This article is currently available in Czech.</p>" + html
+        : html;
       normalizeArticleLinks(articleBodyEl);
 
       overlay.classList.add("blog-overlay--article");
@@ -997,7 +1070,7 @@
     }
 
     svg.classList.add("rocket__map-overlay");
-    svg.setAttribute("aria-label", "Interaktivní body rozvoje na mapě Kostariky");
+    svg.setAttribute("aria-label", isEn ? "Interactive development points on the map of Costa Rica" : "Interaktivní body rozvoje na mapě Kostariky");
     svg.removeAttribute("aria-hidden");
     objectEl.replaceWith(svg);
 
@@ -1062,8 +1135,12 @@
   }
 
   function initCostaMap() {
-    const copy = window.COSTA_MAP_MARKERS;
-    if (!copy) return;
+    const source = window.COSTA_MAP_MARKERS;
+    if (!source) return;
+    const copy = {};
+    Object.entries(source).forEach(([id, data]) => {
+      copy[id] = isEn && data.en ? data.en : data;
+    });
 
     document.querySelectorAll(".rocket__map-canvas").forEach((canvas) => {
       initCostaMapCanvas(canvas, copy);

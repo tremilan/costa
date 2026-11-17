@@ -1,16 +1,30 @@
 (function () {
-  const STATUS = {
-    available: "K dispozici",
-    reserved: "Rezervováno",
-    sold: "Prodáno",
-  };
+  const isEn = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+  const contactHref = isEn
+    ? "/costa/en/kontakt.html#kontakt-form"
+    : "/costa/kontakt.html#kontakt-form";
+  const STATUS = isEn
+    ? { available: "Available", reserved: "Reserved", sold: "Sold" }
+    : { available: "K dispozici", reserved: "Rezervováno", sold: "Prodáno" };
+
+  function text(item, key) {
+    if (isEn && item[key + "En"] != null) return item[key + "En"];
+    return item[key];
+  }
 
   const ZOOM_MIN = 1;
   const ZOOM_MAX = 3;
   const ZOOM_STEP = 0.25;
 
+  const CZK_PER_EUR = 24.43;
+  const CZK_PER_GBP = 29.278;
+
   function formatPrice(value) {
-    return value.toLocaleString("cs-CZ") + " Kč";
+    const rounded = Math.round(value);
+    if (!isEn) return rounded.toLocaleString("cs-CZ") + " Kč";
+    const eur = Math.round(rounded / CZK_PER_EUR);
+    const gbp = Math.round(rounded / CZK_PER_GBP);
+    return "€" + eur.toLocaleString("en-GB") + " / £" + gbp.toLocaleString("en-GB");
   }
 
   function parsePoints(pointsString) {
@@ -60,8 +74,8 @@
     const priceRow =
       parcel.status === "available"
         ? `<div class="parcel-popover__row">
-          <dt>Cena</dt>
-          <dd>${parcel.price ? `od ${formatPrice(parcel.price)}` : "–"}</dd>
+          <dt>${isEn ? "Price" : "Cena"}</dt>
+          <dd>${parcel.price ? `${isEn ? "from" : "od"} ${formatPrice(parcel.price)}` : "–"}</dd>
         </div>`
         : "";
 
@@ -69,18 +83,18 @@
       <p class="parcel-popover__title"><span class="parcel-popover__id">${parcel.id}</span> ${parcel.name}</p>
       <dl class="parcel-popover__meta">
         <div class="parcel-popover__row">
-          <dt>Dostupnost</dt>
+          <dt>${isEn ? "Availability" : "Dostupnost"}</dt>
           <dd><span class="parcel-popover__status is-${parcel.status}">${STATUS[parcel.status]}</span></dd>
         </div>
         <div class="parcel-popover__row">
-          <dt>Plocha</dt>
+          <dt>${isEn ? "Area" : "Plocha"}</dt>
           <dd>${parcel.area}</dd>
         </div>
         ${priceRow}
       </dl>
       ${
         parcel.status === "available"
-          ? `<a href="/costa/kontakt.html#kontakt-form" class="btn btn--primary btn--sm parcel-popover__cta">Mám zájem</a>`
+          ? `<a href="${contactHref}" class="btn btn--primary btn--sm parcel-popover__cta">${isEn ? "I'm interested" : "Mám zájem"}</a>`
           : ""
       }
     `;
@@ -427,16 +441,17 @@
   }
 
   function renderProjectMapIntro(project) {
-    const lines = project.mapIntro
-      ? Array.isArray(project.mapIntro)
-        ? project.mapIntro
-        : [project.mapIntro]
+    const mapIntro = isEn && project.mapIntroEn ? project.mapIntroEn : project.mapIntro;
+    const lines = mapIntro
+      ? Array.isArray(mapIntro)
+        ? mapIntro
+        : [mapIntro]
       : [];
     const items = lines
       .map((line) => `<p class="project-plan-block__map-intro-line">${line}</p>`)
       .join("");
     const priceMarkup = project.fromPrice
-      ? `<p class="project-plan-block__map-intro-line project-plan-block__map-intro-line--price">Pozemky od ${formatPrice(project.fromPrice)}</p>`
+      ? `<p class="project-plan-block__map-intro-line project-plan-block__map-intro-line--price">${isEn ? "Land from" : "Pozemky od"} ${formatPrice(project.fromPrice)}</p>`
       : "";
 
     if (!items && !priceMarkup) return "";
@@ -449,7 +464,7 @@
       const items = project.introPoints
         .map(
           (point) =>
-            `<article class="step-card"><h4 class="step-card__title">${point.title}</h4><p class="step-card__text">${point.text}</p></article>`
+            `<article class="step-card"><h4 class="step-card__title">${text(point, "title")}</h4><p class="step-card__text">${text(point, "text")}</p></article>`
         )
         .join("");
       return `<div class="invest-model__steps project-plan-block__steps">${items}</div>`;
@@ -488,7 +503,7 @@
     if (!project.video) return "";
 
     const posterMarkup = renderVideoPosterMarkup(project);
-    const label = `Přehrát video – ${project.title}`;
+    const label = isEn ? `Play the video – ${project.title}` : `Přehrát video – ${project.title}`;
     const playIcon =
       '<span class="media-star__play intro-video__play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
 
@@ -537,24 +552,24 @@
       <div class="project-plan-block__body">
         <div class="plan-map">
           <div class="plan-map__toolbar">
-            <div class="plan-map__zoom" aria-label="Přiblížení plánu">
-              <button type="button" class="plan-map__zoom-btn" data-zoom="out" aria-label="Oddálit">−</button>
+            <div class="plan-map__zoom" aria-label="${isEn ? "Plan zoom" : "Přiblížení plánu"}">
+              <button type="button" class="plan-map__zoom-btn" data-zoom="out" aria-label="${isEn ? "Zoom out" : "Oddálit"}">−</button>
               <span class="plan-map__zoom-label" data-zoom-label>100 %</span>
-              <button type="button" class="plan-map__zoom-btn" data-zoom="in" aria-label="Přiblížit">+</button>
+              <button type="button" class="plan-map__zoom-btn" data-zoom="in" aria-label="${isEn ? "Zoom in" : "Přiblížit"}">+</button>
               <button type="button" class="plan-map__zoom-btn plan-map__zoom-btn--text" data-zoom="reset">Reset</button>
             </div>
           </div>
           <div class="plan-map__viewport" data-plan-viewport style="aspect-ratio: ${ratio}">
             <div class="plan-map__stage" data-plan-stage>
-              <img src="${imageSrc}" alt="${project.imageAlt}" class="plan-map__img" decoding="async">
+              <img src="${imageSrc}" alt="${text(project, "imageAlt")}" class="plan-map__img" decoding="async">
               ${renderSvgOverlay(project.parcels, shapeData)}
             </div>
           </div>
           <div class="parcel-popover" data-parcel-popover hidden aria-live="polite"></div>
           <div class="plan-map__legend">
-            <span><i class="is-available"></i> K dispozici</span>
-            <span><i class="is-reserved"></i> Rezervováno</span>
-            <span><i class="is-sold"></i> Prodáno</span>
+            <span><i class="is-available"></i> ${STATUS.available}</span>
+            <span><i class="is-reserved"></i> ${STATUS.reserved}</span>
+            <span><i class="is-sold"></i> ${STATUS.sold}</span>
           </div>
         </div>
       </div>
@@ -570,7 +585,9 @@
 
     if (!window.PROJECT_PARCEL_SHAPES) {
       root.innerHTML =
-        '<p class="lead">Plány parcel se nepodařilo načíst. Otevřete stránku přes lokální server (<code>python3 serve.py</code>) na adrese <code>http://127.0.0.1:8000/projekty-pozemky</code> a obnovte prohlížeč.</p>';
+        isEn
+          ? '<p class="lead">The land plans could not be loaded. Open the page through the local server (<code>python3 serve.py</code>) at <code>http://127.0.0.1:8000/costa/en/projekty-pozemky</code> and refresh the browser.</p>'
+          : '<p class="lead">Plány parcel se nepodařilo načíst. Otevřete stránku přes lokální server (<code>python3 serve.py</code>) na adrese <code>http://127.0.0.1:8000/projekty-pozemky</code> a obnovte prohlížeč.</p>';
       return;
     }
 

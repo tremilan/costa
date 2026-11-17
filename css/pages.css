@@ -1638,6 +1638,23 @@ body.is-team-cards-overlay-open {
   margin-top: 0.35rem;
 }
 
+html[lang="en-GB"] .invest-calc__value {
+  font-size: 1.05rem;
+  letter-spacing: 0;
+}
+
+.invest-calc__fx {
+  margin: 0.85rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-muted);
+}
+
+html[lang="en-GB"] .data-table--invest td {
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
 .invest-calc__table-wrap {
   margin-top: 3rem;
   background: var(--ivory);

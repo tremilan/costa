@@ -40,13 +40,4 @@
     </g>
   </g>
 
-  <g class="hp-map_markers-blue">
-    <g class="hp-map_marker hp-map_marker--uvita" data-marker="uvita" role="button" tabindex="0">
-      <circle class="hp-map__hit" cx="624" cy="587" r="28"/>
-      <g class="hp-map_marker-visual" transform="translate(624 587)" filter="url(#hpGlowBlue)">
-        <circle r="13" fill="#2196F3" stroke="#FFFFFF" stroke-width="3.5"/>
-        <circle r="5.5" fill="#FFFFFF" opacity="0.95"/>
-      </g>
-    </g>
-  </g>
 </svg>

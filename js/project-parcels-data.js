@@ -6,18 +6,25 @@ window.PROJECT_PARCELS = {
     "imageWidth": 1866,
     "imageHeight": 1314,
     "imageAlt": "Plán projektu Palm Oasis el Ňeque",
+    "imageAltEn": "Masterplan of Palm Oasis el Ňeque",
     "introPoints": [
       {
         "title": "Tropická oáza se zázemím",
-        "text": "Život v palmovém háji, kde máte k dispozici bazén, relaxační zóny, workoutovou zónu i hřiště pro děti."
+        "titleEn": "A tropical oasis, with everything on site",
+        "text": "Život v palmovém háji, kde máte k dispozici bazén, relaxační zóny, workoutovou zónu i hřiště pro děti.",
+        "textEn": "Life in a palm grove, with a pool, places to relax, a workout area and a playground for children."
       },
       {
         "title": "Absolutní bezpečí uzavřeného areálu",
-        "text": "Kompletně oplocený a hlídaný areál. Vaše děti si mohou bezpečně hrát venku v přírodě, zatímco vy v klidu odpočíváte."
+        "titleEn": "The security of a gated estate",
+        "text": "Kompletně oplocený a hlídaný areál. Vaše děti si mohou bezpečně hrát venku v přírodě, zatímco vy v klidu odpočíváte.",
+        "textEn": "A fully fenced and guarded estate. Your children can play safely outside in nature while you relax."
       },
       {
         "title": "Strategická blízkost oceánu",
-        "text": "Poloha, která kombinuje to nejlepší. Pouhé 4 minuty od pláže, ale skryté pro maximální soukromí."
+        "titleEn": "Close to the ocean, and still private",
+        "text": "Poloha, která kombinuje to nejlepší. Pouhé 4 minuty od pláže, ale skryté pro maximální soukromí.",
+        "textEn": "A location that offers the best of both. Only 4 minutes from the beach, yet secluded for maximum privacy."
       }
     ],
     "video": "/costa/assets/video/palm-oasis.mp4?v=1080",
@@ -25,6 +32,10 @@ window.PROJECT_PARCELS = {
     "mapIntro": [
       "Najděte dokonalé zázemí pro svou rodinu v palmovém háji.",
       "Kliknutím na parcelu zobrazíte cenu a dostupnost."
+    ],
+    "mapIntroEn": [
+      "Find the right setting for your family in a palm grove.",
+      "Click the land to see the price and availability."
     ],
     "fromPrice": 1142406,
     "parcels": [
@@ -226,18 +237,25 @@ window.PROJECT_PARCELS = {
     "imageWidth": 1990,
     "imageHeight": 1398,
     "imageAlt": "Plán projektu Private Lagoons Residences Terrones",
+    "imageAltEn": "Masterplan of Private Lagoons Residences Terrones",
     "introPoints": [
       {
         "title": "Botanická zahrada jako váš obývák",
-        "text": "Vaše vila bude citlivě zasazena do okolní přírody pro absolutní soukromí."
+        "titleEn": "A botanical garden for a living room",
+        "text": "Vaše vila bude citlivě zasazena do okolní přírody pro absolutní soukromí.",
+        "textEn": "Your villa will be set carefully into the surrounding nature, for complete privacy."
       },
       {
         "title": "Privátní ekosystém na dosah",
-        "text": "Živé laguny s želvami a divoká tropická řeka přímo v hlídaném areálu tvoří kulisu, kterou jinde na světě nekoupíte."
+        "titleEn": "A private ecosystem on your doorstep",
+        "text": "Živé laguny s želvami a divoká tropická řeka přímo v hlídaném areálu tvoří kulisu, kterou jinde na světě nekoupíte.",
+        "textEn": "Living lagoons with turtles, and a wild tropical river inside the guarded estate, create a setting you will not find for sale anywhere else."
       },
       {
         "title": "Panenská příroda všude kolem",
-        "text": "Spojení divočiny poloostrova Osa a české zázemí s kompletním servisem stavby a správy na klíč."
+        "titleEn": "Untouched nature on every side",
+        "text": "Spojení divočiny poloostrova Osa a české zázemí s kompletním servisem stavby a správy na klíč.",
+        "textEn": "The wilderness of the Osa Peninsula, with a Czech team and a full turnkey build and management service."
       }
     ],
     "video": "/costa/assets/video/private-lagoons.mp4?v=1080",
@@ -245,6 +263,10 @@ window.PROJECT_PARCELS = {
     "mapIntro": [
       "Vstupte do privátní botanické zahrady.",
       "Klikněte na preferovanou parcelu a objevte detaily svého budoucího útočiště."
+    ],
+    "mapIntroEn": [
+      "Step into a private botanical garden.",
+      "Click the land you prefer and see the details of your future retreat."
     ],
     "fromPrice": 1555950,
     "parcels": [
